@@ -1,45 +1,42 @@
 #include <stdio.h>
 
 int main() {
-    char operador;
-    double num1, num2, resultado;
+    int opcion;
+    float num1, num2, resultado;
 
-    // Solicitar al usuario que ingrese la operación
-    printf("Ingrese la operación que desea realizar (+, -, *, /): ");
-    scanf(" %c", &operador);
+    printf("Selecciona una operación: \n");
+    printf("1. Suma\n");
+    printf("2. Resta\n");
+    printf("3. Multiplicación\n");
+    printf("4. División\n");
+    scanf("%d", &opcion);
 
-    // Solicitar al usuario que ingrese los dos números
-    printf("Ingrese el primer número: ");
-    scanf("%lf", &num1);
+    printf("Ingresa dos números: ");
+    scanf("%f %f", &num1, &num2);
 
-    printf("Ingrese el segundo número: ");
-    scanf("%lf", &num2);
-
-    // Realizar la operación según el operador ingresado
-    switch(operador) {
-        case '+':
+    switch(opcion) {
+        case 1:
             resultado = num1 + num2;
-            printf("El resultado de %.2lf + %.2lf es: %.2lf\n", num1, num2, resultado);
+            printf("Resultado: %.2f\n", resultado);
             break;
-        case '-':
+        case 2:
             resultado = num1 - num2;
-            printf("El resultado de %.2lf - %.2lf es: %.2lf\n", num1, num2, resultado);
+            printf("Resultado: %.2f\n", resultado);
             break;
-        case '*':
+        case 3:
             resultado = num1 * num2;
-            printf("El resultado de %.2lf * %.2lf es: %.2lf\n", num1, num2, resultado);
+            printf("Resultado: %.2f\n", resultado);
             break;
-        case '/':
-            if (num2 != 0) {
+        case 4:
+            if(num2 != 0) {
                 resultado = num1 / num2;
-                printf("El resultado de %.2lf / %.2lf es: %.2lf\n", num1, num2, resultado);
+                printf("Resultado: %.2f\n", resultado);
             } else {
-                printf("Error: División por cero no permitida.\n");
+                printf("Error: División por cero.\n");
             }
             break;
         default:
-            printf("Operador no válido.\n");
-            break;
+            printf("Opción inválida.\n");
     }
 
     return 0;
